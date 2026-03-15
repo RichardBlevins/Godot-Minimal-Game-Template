@@ -309,7 +309,7 @@ states/OpenMainMenu/node = SubResource("10")
 states/OpenMainMenu/position = Vector2(472, 123)
 states/OpenSubMenu/node = SubResource("13")
 states/OpenSubMenu/position = Vector2(734, 123)
-states/Start/position = Vector2(82, 123)
+states/Start/position = Vector2(82, 122.75)
 transitions = ["Intro", "OpenMainMenu", SubResource("11"), "OpenMainMenu", "OpenSubMenu", SubResource("14"), "Start", "Intro", SubResource("AnimationNodeStateMachineTransition_j0orr"), "OpenSubMenu", "OpenMainMenu", SubResource("AnimationNodeStateMachineTransition_63dxc")]
 graph_offset = Vector2(-180.277, 49)
 
@@ -329,6 +329,9 @@ parameters/conditions/intro_done = false
 
 [node name="TitleContainer" parent="MenuContainer/TitleMargin" parent_id_path=PackedInt32Array(1189822984) index="0" unique_id=704939549]
 modulate = Color(1, 1, 1, 0)
+
+[node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0" unique_id=334107926]
+text = "The Bologna Bandit's"
 
 [node name="SubTitleContainer" parent="MenuContainer/SubTitleMargin" parent_id_path=PackedInt32Array(893436372) index="0" unique_id=523889664]
 modulate = Color(1, 1, 1, 0)

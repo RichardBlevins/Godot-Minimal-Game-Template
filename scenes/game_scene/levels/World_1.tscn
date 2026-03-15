@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://erbvhh81vap5"]
+
+[ext_resource type="PackedScene" uid="uid://c53j0ubsu6534" path="res://scenes/game_scene/entities/Player/Player.tscn" id="1_v2fsu"]
+
+[node name="World_1" type="Node3D" unique_id=1391618820]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1893144964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+radius = 12.609863
+height = 1.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1414140035]
+transform = Transform3D(1, 0, 0, 0, 0.062128633, 0.99806815, 0, -0.99806815, 0.062128633, 12.702139, 15.041773, 1.3794327)
+
+[node name="Player" parent="." unique_id=1478458532 instance=ExtResource("1_v2fsu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.084756374, 0.49999905, 0.12726593)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1913660063]
+transform = Transform3D(1, 0, 0, 0, 0.81559265, 0.5786265, 0, -0.5786265, 0.81559265, 0, 8.013081, 16.481512)
+fov = 46.963898
+
+[node name="Levels" type="Node3D" parent="." unique_id=1486266476]

@@ -20,12 +20,17 @@ config/icon="res://icon.png"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 
+[dotnet]
+
+project/assembly_name="Minimal Game Template"
+
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg")
+enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg", "res://addons/ridiculous_coding/plugin.cfg")
 
 [gui]
 
+theme/custom="res://resources/themes/lore.tres"
 common/drop_mouse_on_gui_input_disabled=true
 
 [input]

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c53j0ubsu6534"]
+
+[sub_resource type="GDScript" id="GDScript_xrdso"]
+script/source = "extends CharacterBody3D
+
+
+@export var speed : float = 5.0
+@export var jump_velocity : float = 4.5
+
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = jump_velocity
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var input_dir := Input.get_vector(\"move_left\", \"move_right\", \"move_up\", \"move_down\")
+	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		velocity.x = direction.x * speed
+		velocity.z = direction.z * speed
+	else:
+		velocity.x = move_toward(velocity.x, 0, speed)
+		velocity.z = move_toward(velocity.z, 0, speed)
+
+	move_and_slide()
+"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xrdso"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_baibn"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1478458532]
+script = SubResource("GDScript_xrdso")
+
+[node name="InputManager" type="Node3D" parent="." unique_id=669565293]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1903043441]
+shape = SubResource("SphereShape3D_xrdso")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1970034961]
+mesh = SubResource("SphereMesh_baibn")
